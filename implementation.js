@@ -12,6 +12,28 @@ function findTagColorSheet(aDocument) {
   return tagSheet;
 }
 
+function removeAllTagColors(aSheet) {
+	while (aSheet.cssRules.length > 0) {
+		aSheet.deleteRule(0);
+	}
+}
+
+function copyUntaggedStyle(sourceSheet, targetSheet) {
+	for (let rule of sourceSheet.rules) {
+		if (rule.type == 3) { // Import
+			copyUntaggedStyle(rule.styleSheet, targetSheet);
+		}
+		if (rule.type == 1) {
+			let selector = rule.selectorText;
+			if (selector.includes("untagged")) {
+				targetSheet.insertRule(
+					rule.cssText.replace(/\buntagged\b/, "tagged")
+				);
+			}
+		}
+	}
+}
+
 var notagcolors = class extends ExtensionCommon.ExtensionAPI {
 	getAPI(context) {
 		return {
@@ -21,12 +43,15 @@ var notagcolors = class extends ExtensionCommon.ExtensionAPI {
 					TagUtils.loadTagsIntoCSS = function(aDocument){};
 					TagUtils.addTagToAllDocumentSheets = function(aKey, aColor){};
 
-					// Remove all the tag colors
 					for (let nextWin of Services.wm.getEnumerator("mail:3pane", true)) {
-						var tagSheet = findTagColorSheet(nextWin.document);
-						if (tagSheet) {
-							while (tagSheet.cssRules.length > 0) {
-								tagSheet.deleteRule(0);
+						var tagColorSheet = findTagColorSheet(nextWin.document);
+						if (tagColorSheet) {
+							// Remove all the tag colors
+							removeAllTagColors(tagColorSheet);
+
+							// ... and copy the style of untagged messages.
+							for (let sheet of nextWin.document.styleSheets) {
+								copyUntaggedStyle(sheet, tagColorSheet);
 							}
 						}
 					}
