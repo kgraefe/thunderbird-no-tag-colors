@@ -1,0 +1,32 @@
+{
+
+  "manifest_version": 2,
+  "name": "No Tag Colors",
+  "description": "Disables tag colors in message list",
+  "author": "Konrad Gräfe <kgraefe@paktolos.net>",
+  "version": "1.0",
+
+  "applications": {
+	"gecko": {
+		"id": "tb-no-tag-colors@paktolos.net",
+		"strict_min_version": "78.0",
+		"strict_max_version": "91.*"
+	}
+  },
+
+
+  "background" : {
+	  "scripts" : ["background.js"]
+  },
+
+  "experiment_apis": {
+	"notagcolors": {
+		"schema": "schema.json",
+		"parent": {
+			"scopes": ["addon_parent"],
+			"paths": [["notagcolors"]],
+			"script": "implementation.js"
+		}
+	}
+  }
+}

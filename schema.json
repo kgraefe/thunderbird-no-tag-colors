@@ -1,0 +1,14 @@
+[
+	{
+		"namespace": "notagcolors",
+		"functions": [
+			{
+				"name": "disableTagColors",
+				"type": "function",
+				"description": "Disable tag colors in message list",
+				"async": false,
+				"parameters": []
+			}
+		]
+	}
+]

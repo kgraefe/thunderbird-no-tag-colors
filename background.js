@@ -1,0 +1,1 @@
+browser.notagcolors.disableTagColors();
