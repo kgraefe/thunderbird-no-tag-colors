@@ -53,6 +53,16 @@ var notagcolors = class extends ExtensionCommon.ExtensionAPI {
 							for (let sheet of nextWin.document.styleSheets) {
 								copyUntaggedStyle(sheet, tagColorSheet);
 							}
+
+							// Add rule for tag toolbar dropdown
+							tagColorSheet.insertRule(
+								"#button-tag menuitem { color: inherit !important; }"
+							);
+
+							// Add rule for quick filter toolbar
+							tagColorSheet.insertRule(
+								".qfb-tag-button .toolbarbutton-text { color: var(--lwt-text-color); }"
+							);
 						}
 					}
 				}
