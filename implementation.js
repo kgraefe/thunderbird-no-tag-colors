@@ -61,7 +61,7 @@ var notagcolors = class extends ExtensionCommon.ExtensionAPI {
 
 							// Add rule for quick filter toolbar
 							tagColorSheet.insertRule(
-								".qfb-tag-button .toolbarbutton-text { color: var(--lwt-text-color); }"
+								".qfb-tag-button .toolbarbutton-text { color: -moz-DialogText; }"
 							);
 						}
 					}
