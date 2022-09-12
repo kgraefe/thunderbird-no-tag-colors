@@ -1,6 +1,6 @@
 # Thunderbird No Tag Colors Changes
 
-## Version 1.2 (in development)
+## Version 1.2 (2022-09-12)
 - Fix tag colors in quick filter toolbar on Ubuntu dark mode
 
 ## Version 1.1 (2021-11-03)
