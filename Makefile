@@ -1,4 +1,4 @@
-no-tag-colors.xpi: $(wildcard *.js *.json)
+no-tag-colors.xpi: $(wildcard *.js *.json) COPYING
 	zip -r $@ $+
 
 clean:
