@@ -9,8 +9,7 @@
   "applications": {
 	"gecko": {
 		"id": "tb-no-tag-colors@paktolos.net",
-		"strict_min_version": "78.0",
-		"strict_max_version": "91.*"
+		"strict_min_version": "78.0"
 	}
   },
 
