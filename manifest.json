@@ -4,7 +4,7 @@
   "name": "No Tag Colors",
   "description": "Disables tag colors in message list and toolbar items",
   "author": "Konrad Gräfe <kgraefe@paktolos.net>",
-  "version": "1.2",
+  "version": "1.3",
 
   "applications": {
 	"gecko": {

@@ -1,5 +1,10 @@
 # Thunderbird No Tag Colors Changes
 
+## Version 1.3 (2022-09-22)
+- Add GPLv2 license
+- Remove strict maximal Thunderbird version so the plugin is compatible with
+  newer versions too.
+
 ## Version 1.2 (2022-09-12)
 - Fix tag colors in quick filter toolbar on Ubuntu dark mode
 
